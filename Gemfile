@@ -32,7 +32,8 @@ gem "jbuilder"
 
 gem "pagy"
 gem 'bcrypt'
-
+gem 'byebug'
+gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

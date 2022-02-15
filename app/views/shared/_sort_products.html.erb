@@ -1,0 +1,17 @@
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+    Сортировать
+  </button>
+  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+    <li><%= button_to 'От дешевых к дорогим', '#', method: :get, params: {sort_status: :price_asc}, class: 'dropdown-item', remote: true %></li>
+    <li><%= button_to 'От дорогих к дешевым', '#', method: :get, params: {sort_status: :price_desc}, class: 'dropdown-item', remote: true %></li>
+    <li><%= button_to 'От А до Я', '#', method: :get, params: {sort_status: :title_asc}, class: 'dropdown-item', remote: true %></li>
+    <li><%= button_to 'От Я до А', '#', method: :get, params: {sort_status: :title_desc}, class: 'dropdown-item', remote: true %></li>
+  </ul>
+</div>
+
+<div class="qwe">
+  <%= button_to qwe_path, remote: true do %>
+    asdasd
+  <% end %>
+</div>
