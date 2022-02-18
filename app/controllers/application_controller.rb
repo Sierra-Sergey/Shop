@@ -16,30 +16,21 @@ class ApplicationController < ActionController::Base
   def sorting(sort_status)
     case sort_status
     when 'price_asc'
-      if @category
-        @products = Product.where(category_id: @category.id).order(price: :asc)
-      else
-        @products = Product.all.order(price: :asc)
-      end
+        @products = @products.order(price: :asc)
     when 'price_desc'
-      if @category
-        @products = Product.where(category_id: @category.id).order(price: :desc)
-      else
-        @products = Product.all.order(price: :desc)
-      end
+        @products = @products.order(price: :desc)
     when 'title_asc'
-      if @category
-        @products = Product.where(category_id: @category.id).order(title: :asc)
-      else
-        @products = Product.all.order(title: :asc)
-      end
+        @products = @products.order(title: :asc)
     when 'title_desc'
-      if @category
-        @products = Product.where(category_id: @category.id).order(title: :desc)
-      else
-        @products = Product.all.order(title: :desc)
-      end
+        @products = @products.order(title: :desc)
     end
+  end
+
+  def price_filter(min_price, max_price)
+    @min_price = min_price
+    @max_price = max_price
+    max_price = Product.maximum('price') if max_price <= 0
+    @products = @products.price_range(min_price, max_price)
   end
 
 end

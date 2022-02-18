@@ -1,11 +1,21 @@
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-    Сортировать
-  </button>
-  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-    <li><%= button_to 'От дешевых к дорогим', '#', method: :get, params: {sort_status: :price_asc}, class: 'dropdown-item', remote: true %></li>
-    <li><%= button_to 'От дорогих к дешевым', '#', method: :get, params: {sort_status: :price_desc}, class: 'dropdown-item', remote: true %></li>
-    <li><%= button_to 'От А до Я', '#', method: :get, params: {sort_status: :title_asc}, class: 'dropdown-item', remote: true %></li>
-    <li><%= button_to 'От Я до А', '#', method: :get, params: {sort_status: :title_desc}, class: 'dropdown-item', remote: true %></li>
-  </ul>
+<div class="d-flex">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+      Сортировать
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+      <li><%= button_to 'От дешевых к дорогим', '#', method: :get, params: {sort_status: :price_asc, query: @query, min_price: @min_price, max_price: @max_price}, class: 'dropdown-item' %></li>
+      <li><%= button_to 'От дорогих к дешевым', '#', method: :get, params: {sort_status: :price_desc, query: @query, min_price: @min_price, max_price: @max_price}, class: 'dropdown-item' %></li>
+      <li><%= button_to 'От А до Я', '#', method: :get, params: {sort_status: :title_asc, query: @query, min_price: @min_price, max_price: @max_price}, class: 'dropdown-item' %></li>
+      <li><%= button_to 'От Я до А', '#', method: :get, params: {sort_status: :title_desc, query: @query, min_price: @min_price, max_price: @max_price}, class: 'dropdown-item' %></li>
+    </ul>
+    <div class="price_filter">
+      <%= form_with(url: '#', method: :get) do |f| %>
+        <%= f.number_field :min_price, placeholder: 'from' %>
+        <%= f.number_field :max_price, placeholder: 'to' %>
+        <%= f.hidden_field :query, value: @query %>
+        <%= f.submit 'Filter' %>
+      <% end %>
+    </div>
+  </div>
 </div>

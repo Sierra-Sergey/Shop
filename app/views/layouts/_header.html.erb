@@ -23,10 +23,10 @@
   $("#autocomplete").autocomplete({
     delay: 500,
     minLength: 2,
-    source: 'search_titles',
+    source: '/search_titles',
     select: function(event, ui) {
-      $('#autocomplete').val(ui);
-      $('#search').submit();
+        $('#autocomplete').val(ui.item.label);
+        $('#search').submit();
     }
   })
 </script>
