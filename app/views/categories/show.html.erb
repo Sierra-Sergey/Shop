@@ -1,11 +1,1 @@
-<br>
-<%= render 'shared/sort_products' %>
-<div class="nav-bar">
-  <% if @pagy.pages > 1 %>
-    <%== pagy_bootstrap_nav(@pagy) %>
-    <%== pagy_info(@pagy) %>
-  <% end %>
-</div>
-<div class="row">
-  <%= render @records %>
-</div>
+<%= render template: 'products/index' %>

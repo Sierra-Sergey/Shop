@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   root 'products#index'
-  resources :categories do
-    resources :products
-  end
+  resources :categories
+  resources :products
 
   get 'search', to: 'pages#search'
-  post 'qwe', to: 'products#qwe'
+  get 'search_titles', to: 'pages#search_titles'
 end
