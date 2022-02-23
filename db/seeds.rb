@@ -24,3 +24,5 @@ Product.create(title: 'RTX 3060', category: Category.find_by(title: 'Videocards'
 Product.create(title: 'RTX 3070', category: Category.find_by(title: 'Videocards'), price: rand(5000..15000), description: 'Some description for this product')
 Product.create(title: 'RTX 3080', category: Category.find_by(title: 'Videocards'), price: rand(5000..15000), description: 'Some description for this product')
 Product.create(title: 'RTX 3090', category: Category.find_by(title: 'Videocards'), price: rand(5000..15000), description: 'Some description for this product')
+
+User.create(email: 'qwe@qwe.qwe', password: 'qweqwe', admin: true)
