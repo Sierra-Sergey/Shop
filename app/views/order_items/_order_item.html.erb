@@ -1,0 +1,21 @@
+<div id="order_item-<%= item.id %>" class="">
+  <p>Title: <%= item.product.title %></p>
+  <p>Description: <%= item.product.description %></p>
+  <p>Price per/1: <%= item.product.price %></p>
+  <p>Total: <%= item.product.price * item.quantity %></p>
+  <div class="d-flex">
+    <div class="">
+      <%= button_to '-', product_order_item_path(item.product, item), method: :patch, class: 'btn btn-danger', params: { change_quantity: :decrease }, remote: true %>
+    </div>
+    <div id="quantity-<%= item.id %>" class="justify-content-center btn btn-warning">
+      <%= item.quantity %>
+    </div>
+    <div class="">
+      <%= button_to '+', product_order_item_path(item.product, item), method: :patch, class: 'btn btn-success', params: { change_quantity: :increase }, remote: true %>
+    </div>
+    <div id="delete" class="">
+      <%= button_to 'Delete', product_order_item_path(item.product, item), id: 'delete', method: :delete, remote: true, class: 'btn btn-danger' %>
+    </div>
+  </div>
+  <hr>
+</div>

@@ -1,0 +1,2 @@
+$( "#order_item-<%= @order_item.id %>" ).hide();
+document.querySelector('#total-price').innerHTML = "Total price: <%= j @items.each.sum { |i| i.product.price * i.quantity } %> UAH";

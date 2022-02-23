@@ -1,0 +1,2 @@
+document.querySelector('#order_item-<%= @order_item.id %>').innerHTML = "<%= j render 'order_items/order_item', item: @order_item %>";
+document.querySelector('#total-price').innerHTML = "Total price: <%= j @items.each.sum { |i| i.product.price * i.quantity } %> UAH";

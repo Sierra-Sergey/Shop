@@ -1,11 +1,6 @@
-<div class="">
-  <%= @product.title %>
-</div>
-
-<div class="">
-  <%= @product.description %>
-</div>
-
-<div class="">
-  <%= @product.price %>
+<div class="container">
+  <p><%= @product.title %></p>
+  <p><%= @product.description %></p>
+  <p><%= @product.price %></p>
+  <p><%= button_to 'Buy', product_order_items_path(@product), class: 'btn btn-success' %></p>
 </div>

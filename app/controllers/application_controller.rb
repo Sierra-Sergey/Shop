@@ -1,14 +1,23 @@
 class ApplicationController < ActionController::Base
   include Pagy::Backend
+  helper_method :current_order
 
-  # before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[index show search search_titles]
   before_action :set_categories
 
   def set_pagy(obj, items)
     @pagy, @records = pagy(obj, items: items)
   end
 
+  def current_order
+    Order.find_or_create_by(user: current_user, status: :opened)
+  end
+
   private
+
+  def set_order_items
+    @items = current_order.order_items.order(:id)
+  end
 
   def set_categories
     @categories = Category.all
